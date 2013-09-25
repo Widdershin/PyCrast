@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="refresh" content="1" >
+		<link href="static/pycrast.css" type="text/css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+
+	<div class="bars">
+	{% for bar in bars %}
+		<div class="bar back">
+		<div class="bar" style="width: {{bar.percent}}%; background-color: {{bar.color}};"><span class="label">{{ bar.percent|round(2) }}%</span></div>
+		</div>
+	{% endfor %}
+	</div>
+
+	{% for process in processes %}
+		<div class="process">
+		<span class="label"> {{ process }} </span> <span class="controls"><a href="/{{process}}/True/">Productive</a> | <a href="/{{process}}/False/">Unproductive</a></span>
+		</div>
+	{% endfor %}
+	</body>
+</html>
